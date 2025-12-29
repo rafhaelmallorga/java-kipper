@@ -1,13 +1,6 @@
-package Classes;
+package Veiculos.QuatroRodas;
 
-public class Main {
-    public static void main(String[] args) {
-        Carro meuCarro = new Carro("Honda", "Fit", "Preto", (short) 2003);
-        meuCarro.acelerar();
-    }
-}
-
-class Carro {
+public class Carro implements ICarros {
     String marca;
     String modelo;
     String cor;
@@ -25,5 +18,13 @@ class Carro {
     public void acelerar() {
         System.out.println("Hey! Hey! Cowboy!");
         System.out.println("Voce esta acelerando de mais seu possante: " + this.formattedName);
+    }
+
+    public void frear() {
+        System.out.println("Reduzindo a velocidade.");
+    }
+
+    public void parar() {
+        System.out.println("Parado.");
     }
 }

@@ -1,5 +1,9 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+import Biologia.SerHumano;
+import Biologia.SerVivo;
+import Veiculos.QuatroRodas.Carro;
+import Veiculos.QuatroRodas.Roda;
+
+import java.util.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -83,5 +87,75 @@ public class Main {
 
         String meuString2 = Integer.toString(meuInt2);
         System.out.println(meuString2);
+
+        Carro myCar = new Carro("Honda", "Fit", "Preto", (short) 2003);
+        myCar.acelerar();
+
+        Roda novaRoda = new Roda("BBS", "Steel", "Prata", (short) 20);
+        ArrayList<Carro> carrosCompativeis = novaRoda.getCarros();
+        System.out.println(carrosCompativeis.toString());
+
+        novaRoda.addNewCarro(myCar);
+        carrosCompativeis = novaRoda.getCarros();
+        carrosCompativeis.get(0).acelerar();
+
+        SerVivo serVivo = new SerHumano((short) 31);
+        serVivo.respirar();
+        serVivo.dormir();
+        serVivo.idade();
+
+        try {
+            Carro meuCarroFurado = null;
+            meuCarroFurado.acelerar();
+        } catch (NullPointerException e) {
+            System.out.println("Esse carro nao presta " + e);
+        }
+
+        // java collections
+        // map = chave valor (objeto do js)
+        // set = nao permite duplicados
+        // list = lista de elementos (pode ter duplicados)
+        // queue = filas (processamento em ordem)
+
+        List<String> list = List.of("Rafhael", "Mallorga", "Bruna", "Rafaela");
+        System.out.println(list);
+
+        List<String> newList = new ArrayList<String>();
+        newList.add("Rafhael");
+        newList.add("Mallorga");
+
+        System.out.println(newList);
+
+        Set<String> mySet = new HashSet<String>();
+        mySet.add("Rafhael");
+        mySet.add("Mallorga");
+        mySet.add("Bruna");
+        mySet.add("Mallorga");
+        System.out.println(mySet);
+
+        Map<String, String> myMap = new HashMap<>();
+        myMap.put("1", "Rafhael");
+        myMap.put("2", "Mallorga");
+        myMap.put("3", "Bruna");
+        myMap.put("4", "Rafaela");
+
+        System.out.println(myMap.get("3"));
+
+        System.out.println(myMap);
+
+        Queue<String> myQueue = new LinkedList<>();
+        myQueue.add("1");
+        myQueue.add("2");
+        myQueue.add("3");
+        myQueue.add("4");
+
+        myQueue.poll();
+
+        System.out.println(myQueue.peek());
+
+        System.out.println(myQueue);
+
+        List<String> newNewList = list.stream().filter(name -> name.startsWith("Raf")).toList();
+        System.out.println(newNewList);
     }
 }
